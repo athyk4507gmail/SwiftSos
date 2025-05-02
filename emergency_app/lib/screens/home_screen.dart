@@ -7,6 +7,7 @@ import 'package:rive/rive.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../services/api_service.dart';
 import 'live_feed_screen.dart';
+import 'map_screen.dart'; 
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -71,7 +72,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: CircularProgressIndicator(
                           value: progress,
                           strokeWidth: 8,
-                          valueColor: const AlwaysStoppedAnimation<Color>(Colors.redAccent),
+                          valueColor:
+                              const AlwaysStoppedAnimation<Color>(Colors.redAccent),
                           backgroundColor: Colors.grey,
                         ),
                       ),
@@ -191,7 +193,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(30),
                           borderSide: BorderSide.none,
                         ),
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 16),
                       ),
                       dropdownColor: Colors.grey[900],
                       style: const TextStyle(color: Colors.white),
@@ -211,7 +214,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(30),
                           borderSide: BorderSide.none,
                         ),
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 16),
                       ),
                     ),
                   ),
@@ -236,6 +240,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.cyanAccent,
                     glowColor: Colors.cyanAccent,
                     textColor: Colors.black,
+                  ),
+                  const SizedBox(height: 20),
+                  _buildNeonButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MapScreen(),
+                        ),
+                      );
+                    },
+                    text: 'View My Location',
+                    color: Colors.blueAccent,
+                    glowColor: Colors.lightBlueAccent,
                   ),
                   const SizedBox(height: 30),
                 ],
@@ -303,6 +321,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
 
 
 

@@ -1,16 +1,12 @@
-const path = require('path');
 const admin = require('firebase-admin');
-const fs = require('fs');
+const serviceAccount = require('../serviceAccountKey.json');
 
-// Read the JSON file manually
-const serviceAccount = JSON.parse(
-  fs.readFileSync(path.join(__dirname, '../serviceAccountKey.json')).toString()
-);
+if (!admin.apps.length) {
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+  });
+}
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
+const db = admin.firestore();
 
-module.exports = admin;
-
-
+module.exports = { admin, db };

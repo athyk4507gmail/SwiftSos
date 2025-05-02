@@ -5,5 +5,7 @@ const alertController = require('../controllers/alertController');
 // Send emergency alert
 router.post('/send', alertController.sendAlert);
 
-module.exports = router;
+// Get live alerts
+router.get('/live', alertController.getLiveAlerts);
 
+module.exports = router;
